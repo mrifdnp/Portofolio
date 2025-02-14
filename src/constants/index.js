@@ -20,7 +20,7 @@ export const EXPERIENCES = [
     role: "Computer Lab Assistant for Advanced Programming and Database System",
     company: "Forum Asisten - Universitas Amikom Yogyakarta",
     description: `I served as a Computer Lab Assistant for Advanced Programming and Database Structure at Forum Asisten from September 2024 to January 2025 in Sleman, Yogyakarta. My role involved assisting students with programming concepts, debugging code, and guiding them through database design and implementation. I provided hands-on support, facilitated lab sessions, and helped troubleshoot technical issues to enhance students' learning experiences. This experience strengthened my expertise in software development, database management, and technical mentoring, while also improving my problem-solving and communication skills.`,
-    technologies: ["HTML", "CSS", "Vue.js", "mySQL"],
+    technologies: ["C#", "C++", "Laragon", "mySQL"],
   },
 ];
 

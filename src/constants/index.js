@@ -41,6 +41,14 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "Laravel",  "mySQL"],
   },
 
+  {    title: "Microsite",
+    
+    description:
+      "A Link in Bio website is a platform that allows users to manage and share multiple links through a single, customizable landing page. This project is designed to help content creators, businesses, and influencers direct their audience to various platforms, such as social media, online stores, portfolios, and other important links, using just one URL.",
+    technologies: ["Laravel Breeze , Filament"],
+  },
+
+
 ];
 
 export const CONTACT = {

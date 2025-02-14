@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import Navbar from './components/navbar'
+
 import Hero from './components/Hero';
 import About from './components/About';
 import Technologies from './components/Technologies';
 import Experience from './components/Experience';
 import Project from './components/Project';
 import Contact from './components/Contact';
+import Navbar from './components/navbar';
 
 
 const App = () => {

@@ -1,3 +1,4 @@
+import { image } from "framer-motion/client";
 import project1 from "../assets/projects/project-1.jpg";
 import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
@@ -16,11 +17,11 @@ export const EXPERIENCES = [
     technologies: ["Kotlin", "Jetpack Compose", "Figma", "Firebase"],
   },
   {
-    year: "September 2024 - January 2025",
-    role: "Computer Lab Assistant for Advanced Programming and Database System",
+    year: "September 2024 - July 2025",
+    role: "Computer Lab Assistant for Advanced Programming, Database System, Mobile Programming, and Web Programming",
     company: "Forum Asisten - Universitas Amikom Yogyakarta",
-    description: `I served as a Computer Lab Assistant for Advanced Programming and Database Structure at Forum Asisten from September 2024 to January 2025 in Sleman, Yogyakarta. My role involved assisting students with programming concepts, debugging code, and guiding them through database design and implementation. I provided hands-on support, facilitated lab sessions, and helped troubleshoot technical issues to enhance students' learning experiences. This experience strengthened my expertise in software development, database management, and technical mentoring, while also improving my problem-solving and communication skills.`,
-    technologies: ["C#", "C++", "Laragon", "mySQL"],
+    description: `I served as a Computer Lab Assistant at Forum Asisten from September 2024 to January 2025 in Sleman, Yogyakarta. My role involved assisting students with programming concepts, debugging code, and guiding them through database design and implementation. I provided hands-on support, facilitated lab sessions, and helped troubleshoot technical issues to enhance students' learning experiences. This experience strengthened my expertise in software development, database management, and technical mentoring, while also improving my problem-solving and communication skills.`,
+    technologies: ["C#", "C++", "Laragon", "mySQL", "Kotlin", "Javascript", "HTML", "CSS"],
   },
 ];
 
@@ -35,14 +36,14 @@ export const PROJECTS = [
   
   {
     title: "Pasar Tradisi - Traditional Market E-Commerce Platform",
-    
+    image: project2,
     description:
       "An e-commerce platform for traditional markets, enabling vendors to create online stores, manage inventory, and receive orders from customers.",
     technologies: ["HTML", "CSS", "Laravel",  "mySQL"],
   },
 
   {    title: "Microsite",
-    
+    image: project3,
     description:
       "A Link in Bio website is a platform that allows users to manage and share multiple links through a single, customizable landing page. This project is designed to help content creators, businesses, and influencers direct their audience to various platforms, such as social media, online stores, portfolios, and other important links, using just one URL.",
     technologies: ["Laravel Breeze , Filament"],

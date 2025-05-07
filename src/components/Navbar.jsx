@@ -17,6 +17,14 @@ const Navbar = () => {
         <a href="https://www.instagram.com/mrifdnp109" target="_blank" rel="noopener noreferrer">
           <FaInstagram className="hover:text-pink-600 transition-colors" />
         </a>
+        <a 
+          href="https://drive.google.com/file/d/1I0AMWHwuyB7cXFO6aX0SGWznU-PMVcsL/view?usp=sharing" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-4 rounded-md border px-4 py-2 text-sm font-semibold transition-colors hover:bg-gray-200"
+        >
+          Download CV
+        </a>
       </div>
     </nav>
   );

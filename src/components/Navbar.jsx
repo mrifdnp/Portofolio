@@ -24,7 +24,7 @@ const Navbar = () => {
           className="ml-4 rounded-md border px-4 py-2 text-sm font-semibold transition-colors hover:bg-gray-200"
         >
           Download CV
-        </a>n
+        </a>
       </div>
     </nav>
   );

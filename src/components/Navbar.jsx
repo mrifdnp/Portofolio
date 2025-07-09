@@ -18,7 +18,7 @@ const Navbar = () => {
           <FaInstagram className="hover:text-pink-600 transition-colors" />
         </a>
         <a 
-          href="https://drive.google.com/file/d/1I0AMWHwuyB7cXFO6aX0SGWznU-PMVcsL/view?usp=sharing" 
+          href="https://drive.google.com/file/d/1d2_tL_hnKrSH7UfC3jsZXgkw8uKr4UxQ/view?usp=drive_link" 
           target="_blank"
           rel="noopener noreferrer"
           className="ml-4 rounded-md border px-4 py-2 text-sm font-semibold transition-colors hover:bg-gray-200"

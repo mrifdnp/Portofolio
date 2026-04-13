@@ -32,6 +32,13 @@ export const EXPERIENCES = [
     technologies: ["Pemrograman Mobile", "Web", "Algoritma", "Basis Data"],
   },
   {
+    year: "2022 - 2026",
+    role: "Sarjana Informatika (IPK 3.82)",
+    company: "Universitas Amikom Yogyakarta",
+    description: `Program S1 Informatika dengan fokus pada pengembangan perangkat lunak dan keahlian teknis terkait.`,
+    technologies: ["Informatika", "Software Engineering"],
+  },
+  {
     year: "2024",
     role: "Mobile Developer",
     company: "Bangkit Academy 2024",

@@ -8,7 +8,7 @@ import SequenceScroll from './components/SequenceScroll';
 import About from './components/About';
 import Stats from './components/Stats';
 import Project from './components/Project';
-import Testimonial from './components/Testimonial';
+import Experience from './components/Experience';
 import Contact from './components/Contact';
 
 const App = () => {
@@ -52,7 +52,7 @@ const App = () => {
           <About />
           <Stats />
           <Project />
-          <Testimonial />
+          <Experience />
           <Contact />
         </div>
       </main>

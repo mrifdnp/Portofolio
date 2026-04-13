@@ -1,33 +1,40 @@
-import aboutImg from "../assets/about.jpg";
+import { useScroll, motion, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { ABOUT_TEXT } from "../constants";
-import { motion } from "framer-motion";
 
 const About = () => {
-  return (
-    <div className="border-b border-neutral-900 pb-4">
-      <h1 className="my-20 text-center text-4xl">
-        About
-        <span className="text-neutral-500"> Me</span>
-      </h1>
-      <div className="flex flex-wrap">
-        <motion.div whileInView={{opacity:1, x:0 }}
-        initial={{ opacity:0, x:-100 }}
-        transition={{ duration:0.5 }}
-        className="w-full lg:w-1/2 lg:p-8">
-          <div className="flex justify-center items-center">
-            <img className="rounded-2xl w-[500px] h-[500px] object-cover" src={aboutImg} alt="about" />
-          </div>
-        </motion.div>
-        <motion.div 
-         whileInView={{opacity:1, x:0 }}
-         initial={{ opacity:0, x:  100 }}
-         transition={{ duration:0.5 }}className="w-full lg:w-1/2">
-          <div 
-           className="flex justify-center lg:justify-start">
-          <p className="my-2 max-w-xl py-6">{ABOUT_TEXT}</p>
-          </div>
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["0.2 0.9", "1 0.7"]
+  });
 
-        </motion.div>
+  const words = ABOUT_TEXT.split(" ");
+
+  return (
+    <div id="about" ref={containerRef} className="py-32 md:py-64 relative z-10 bg-[#050505]">
+      <div className="container mx-auto px-8 md:px-24">
+        <h2 className="mb-16 text-sm tracking-[0.3em] uppercase text-neutral-500">
+          About Me
+        </h2>
+        
+        <p className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight flex flex-wrap gap-x-2 gap-y-1">
+          {words.map((word, i) => {
+            // Calculate a staggered opacity for each word
+            const start = i / words.length;
+            const end = start + (1 / words.length);
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            const opacity = useTransform(scrollYProgress, [start, end], [0.1, 1]);
+            
+            return (
+              <span key={i} className="relative">
+                <span className="absolute opacity-10">{word}</span>
+                <motion.span style={{ opacity }}>{word}</motion.span>
+              </span>
+            );
+          })}
+        </p>
       </div>
     </div>
   );

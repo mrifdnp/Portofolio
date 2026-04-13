@@ -1,35 +1,63 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useEffect } from 'react';
+import Lenis from 'lenis';
 
-import Hero from './components/Hero';
-import About from './components/About';
-import Technologies from './components/Technologies';
-import Experience from './components/Experience';
-import Project from './components/Project';
-import Contact from './components/Contact';
+import Preloader from './components/Preloader';
 import Navbar from './components/Navbar'; 
-
+import SequenceScroll from './components/SequenceScroll';
+import About from './components/About';
+import Stats from './components/Stats';
+import Project from './components/Project';
+import Testimonial from './components/Testimonial';
+import Contact from './components/Contact';
 
 const App = () => {
+  useEffect(() => {
+    // Initialize Lenis for smooth scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
-    <div className='overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900'>
-      <div className="fixed top -z-10 h-full w-fulll">
-      <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-      </div>
-     
-     <div className="container mx-auto px-8">
+    <div className='bg-[#050505] text-neutral-300 antialiased selection:bg-pink-500 selection:text-white'>
+      <Preloader />
+      
+      <Navbar />
 
-     <Navbar/>
-     <Hero/>
-     <About/>
-     <Technologies/>
-<Experience/>
-<Project/>
-<Contact/>
-     </div>
-    
+      <main>
+        {/* Sticky Background Hero Sequence */}
+        <SequenceScroll />
+        
+        {/* Content sections scrolling up over the hero */}
+        <div className="relative z-10 w-full bg-[#050505]">
+          <About />
+          <Stats />
+          <Project />
+          <Testimonial />
+          <Contact />
+        </div>
+      </main>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

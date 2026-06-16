@@ -1,62 +1,41 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
-import Lenis from 'lenis';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/admin/Login';
+import Dashboard from './pages/admin/Dashboard';
 
-import Preloader from './components/Preloader';
-import Navbar from './components/Navbar'; 
-import SequenceScroll from './components/SequenceScroll';
-import About from './components/About';
-import Stats from './components/Stats';
-import Project from './components/Project';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
+// Komponen untuk memproteksi rute Admin
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem('adminToken');
+  if (!token) {
+    return <Navigate to="/admin/login" replace />;
+  }
+  return children;
+};
 
 const App = () => {
-  useEffect(() => {
-    // Initialize Lenis for smooth scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
   return (
-    <div className='bg-[#050505] text-neutral-300 antialiased selection:bg-pink-500 selection:text-white'>
-      <Preloader />
-      
-      <Navbar />
-
-      <main>
-        {/* Sticky Background Hero Sequence */}
-        <SequenceScroll />
+    <BrowserRouter>
+      <Routes>
+        {/* Public Route */}
+        <Route path="/" element={<Home />} />
         
-        {/* Content sections scrolling up over the hero */}
-        <div className="relative z-10 w-full bg-[#050505]">
-          <About />
-          <Stats />
-          <Project />
-          <Experience />
-          <Contact />
-        </div>
-      </main>
-    </div>
+        {/* Admin Routes */}
+        <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+        <Route path="/admin/login" element={<Login />} />
+        <Route 
+          path="/admin/dashboard" 
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+        
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

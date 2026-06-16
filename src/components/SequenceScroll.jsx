@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-const SequenceScroll = () => {
+const SequenceScroll = ({ heroData }) => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -166,8 +166,8 @@ const SequenceScroll = () => {
           <p className="tracking-[0.3em] text-sm md:text-base text-neutral-400 mb-4 uppercase">
             Mobile & Web Developer
           </p>
-          <h1 className="text-5xl md:text-8xl lg:text-[10vw] font-bold tracking-tighter text-white">
-            RIFQI DANI
+          <h1 className="text-5xl md:text-8xl lg:text-[10vw] font-bold tracking-tighter text-white uppercase text-center">
+            {heroData?.title || "RIFQI DANI"}
           </h1>
         </motion.div>
 
@@ -181,7 +181,7 @@ const SequenceScroll = () => {
               Crafting <span className="italic opacity-80 text-neutral-400">digital</span><br/>experiences.
             </h2>
             <p className="text-neutral-400 md:text-xl font-light">
-              I specialize in building interactive applications and clean interfaces that merge aesthetics with functionality.
+              {heroData?.description || "I specialize in building interactive applications and clean interfaces that merge aesthetics with functionality."}
             </p>
           </div>
         </motion.div>

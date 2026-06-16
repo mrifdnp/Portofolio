@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/portfolio');
+      const response = await axios.get('/api/portfolio');
       if (response.data.hero) {
         setHeroData(response.data.hero);
       }
@@ -41,7 +41,7 @@ const Dashboard = () => {
     setMessage({ text: '', type: '' });
 
     try {
-      await axios.put('http://localhost:3000/api/admin/hero', heroData, {
+      await axios.put('/api/admin/hero', heroData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMessage({ text: 'Data Hero berhasil disimpan!', type: 'success' });

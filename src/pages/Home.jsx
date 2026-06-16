@@ -48,7 +48,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/portfolio');
+        const res = await axios.get('/api/portfolio');
         setData(res.data);
       } catch (err) {
         console.error("Gagal mengambil data dari server:", err);
